@@ -12,15 +12,62 @@ Lugano, Switzerland.
 
 | Project | Domain | Main stack | Status |
 |---|---|---|---|
+| [MirrorSkills](#flagship-mirrorskills) | Enterprise agentic AI and governance | Next.js, TypeScript, PostgreSQL/pgvector, LangGraph, Ollama | Flagship private MVP |
 | [AI & ML Agent](#ai--ml-agent) | Applied AI / ML platform | Python, FastAPI, LangGraph, pgvector, Redis | Validated private project |
 | [VisibilAI](#visibilai) | GEO/AEO analytics | TypeScript, Python, PostgreSQL, ClickHouse | Active private project |
 | [Realtime Translator](#realtime-translator) | Speech AI | faster-whisper, NLLB, FastAPI, React | Local MVP |
 | [Agentic Trader](#agentic-trader) | Agentic analysis | Python, FastAPI, IBKR, TradingView | Active advisory system |
 | [RedBenchOps](#redbenchops) | LLM evaluation | FastAPI, Next.js, Redis, pgvector | Advanced prototype |
-| [MirrorSkills](#mirrorskills) | Enterprise agentic AI | Next.js, TypeScript, PostgreSQL, Ollama | Private product platform |
 | [Syntropiix Control Plane](#syntropiix-control-plane) | Agent orchestration | React, Python, Claude Agent SDK | Active private project |
 | [Syntrocyber](#syntrocyber) | AI security | Python, policies, audit and testing | Defensive R&D suite |
 | [Quantum / Willow Lab](#quantum--willow-lab) | Quantum experiments | Python, Cirq, Claude Agent SDK | Experimental lab |
+
+---
+
+## Flagship: MirrorSkills
+
+**Role in the portfolio:** MirrorSkills is the principal engineering project
+behind the SYNTROPIIX product vision. It is a private enterprise agentic-AI
+platform designed for organizations that require useful automation without
+giving agents uncontrolled authority.
+
+**Problem:** Enterprise agents must operate across company data, tools and
+workflows while preserving human accountability, tenant isolation,
+traceability, cost control and European data-governance requirements.
+
+**Platform capabilities:**
+
+- assigns personal or profession-scoped AI agents to employees;
+- organizes eight vertical-agent profiles around business functions;
+- routes sensitive actions through an OODA-H human-approval workflow;
+- applies more than 250 risk-graded permissions and organization-level policy
+  controls;
+- separates execution and review through a Doer/Critic architecture;
+- supports hybrid model routing across self-hosted Ollama and explicitly
+  enabled cloud providers;
+- combines multi-tenant PostgreSQL, pgvector knowledge retrieval, agent
+  workflows and operational services;
+- provides audit-oriented records, governance gates and controls designed
+  around EU AI Act, GDPR and Swiss FADP concerns;
+- includes deployment, monitoring, backup and launch-readiness assets.
+
+**Main engineering stack:** Next.js, TypeScript, PostgreSQL, Drizzle ORM,
+pgvector, LangGraph, LiteLLM, Ollama, Redis, Docker, Playwright and GitHub
+Actions.
+
+**Engineering evidence:** The local private workspace contains 368 test files,
+13 workflow definitions and 20 Docker-related assets. Recent launch-readiness
+work records more than 2,500 passing automated checks, while known failures
+remain explicitly tracked rather than hidden.
+
+**Current maturity:** Advanced private MVP under continued infrastructure,
+coverage and launch-readiness hardening. It is not presented as formally
+certified for regulatory compliance or as a finished customer-production
+deployment.
+
+**Confidentiality:** Source code, operating configuration and proprietary
+product documentation remain private. This case study intentionally exposes
+only capabilities, architecture and verifiable engineering evidence.
 
 ---
 
@@ -140,28 +187,6 @@ are in progress.
 
 ---
 
-## MirrorSkills
-
-**Problem:** Regulated European organizations need useful AI agents while
-retaining human approval, traceability, cost control and data sovereignty.
-
-**Solution:** A private enterprise agentic-AI platform with:
-
-- governed employee-agent workflows;
-- human-in-the-loop approval queues;
-- risk-graded permissions;
-- hybrid local/cloud model routing;
-- knowledge, collaboration and operational services;
-- compliance and audit-oriented controls;
-- extensive automated testing and CI.
-
-**Portfolio approach:** The product code remains private. Public materials focus
-on architecture, governance patterns and engineering decisions.
-
-**Source:** Private repository.
-
----
-
 ## Syntropiix Control Plane
 
 **Problem:** Multiple specialized agents need a consistent knowledge layer,
@@ -231,4 +256,3 @@ Engineering Professional Certificate.
 
 [LinkedIn](https://www.linkedin.com/in/giacomo-germano-4079491b9/) ·
 [GitHub profile](https://github.com/giack891811)
-
