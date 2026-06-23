@@ -7,9 +7,6 @@ Lugano, Switzerland.
 Public landing page for Instagram, LinkedIn and access requests:
 [Governed Enterprise Agents](./index.html)
 
-Mobile link hub for Instagram bio:
-[Official links](./links.html)
-
 > The source repositories are private. This public portfolio documents the
 > problems addressed, architecture, technology choices, safety boundaries and
 > validation evidence without exposing proprietary code, credentials or data.
