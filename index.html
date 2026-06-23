@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Giacomo Germano | Governed Enterprise Agents</title>
+    <meta
+      name="description"
+      content="Agentic AI, RAG and AI Governance portfolio by Giacomo Germano. Private agentic applications, public case studies and access roadmap."
+    />
+    <style>
+      :root {
+        --bg: #07111d;
+        --bg-soft: #0b1725;
+        --text: #eef6fb;
+        --muted: #9fb2c2;
+        --line: rgba(160, 213, 222, 0.18);
+        --accent: #44d7cb;
+        --accent-soft: rgba(68, 215, 203, 0.12);
+        --warning: #e6d28b;
+        --max: 1120px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 78% 17%, rgba(68, 215, 203, 0.15), transparent 28rem),
+          radial-gradient(circle at 15% 7%, rgba(255, 255, 255, 0.07), transparent 22rem),
+          linear-gradient(140deg, #050b13 0%, var(--bg) 48%, #061724 100%);
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .nav {
+        position: fixed;
+        z-index: 20;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(7, 17, 29, 0.72);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav-inner {
+        width: min(100%, var(--max));
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.25rem;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+        text-decoration: none;
+      }
+
+      .brand strong {
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brand span {
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .hero {
+        min-height: 100svh;
+        display: grid;
+        align-items: center;
+        padding: 8rem 1.25rem 4rem;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 6rem 6rem;
+        mask-image: radial-gradient(circle at 78% 35%, black, transparent 52%);
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        width: min(100%, var(--max));
+        margin: 0 auto;
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 0.78fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .eyebrow {
+        color: var(--accent);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 1rem 0 0;
+        font-size: clamp(3.4rem, 9vw, 8.6rem);
+        line-height: 0.88;
+        letter-spacing: -0.075em;
+      }
+
+      .hero-copy {
+        max-width: 41rem;
+        margin: 1.45rem 0 0;
+        color: var(--muted);
+        font-size: clamp(1.05rem, 2vw, 1.28rem);
+        line-height: 1.65;
+      }
+
+      .actions {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3rem;
+        padding: 0.85rem 1.15rem;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        color: var(--text);
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease;
+      }
+
+      .button.primary {
+        background: var(--accent);
+        color: #041014;
+        border-color: transparent;
+        font-weight: 800;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        border-color: rgba(68, 215, 203, 0.62);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .button.primary:hover {
+        background: #6ee8df;
+      }
+
+      .orbital {
+        min-height: 34rem;
+        position: relative;
+        border-radius: 50%;
+        border: 1px solid rgba(68, 215, 203, 0.22);
+        background:
+          radial-gradient(circle at 50% 50%, rgba(68, 215, 203, 0.15), transparent 7rem),
+          radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06), transparent 14rem);
+        animation: float 7s ease-in-out infinite;
+      }
+
+      .orbital::before,
+      .orbital::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        border: 1px dashed rgba(68, 215, 203, 0.26);
+        inset: 3rem;
+      }
+
+      .orbital::after {
+        inset: 8rem;
+        border-style: solid;
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .node {
+        position: absolute;
+        width: 4.2rem;
+        height: 4.2rem;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: rgba(7, 17, 29, 0.76);
+        box-shadow: 0 0 3rem rgba(68, 215, 203, 0.12);
+      }
+
+      .node::before {
+        content: "";
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 1.4rem var(--accent);
+      }
+
+      .node.one {
+        top: 2rem;
+        left: 42%;
+      }
+
+      .node.two {
+        top: 42%;
+        right: -1rem;
+      }
+
+      .node.three {
+        bottom: 2rem;
+        left: 26%;
+      }
+
+      .node.four {
+        top: 36%;
+        left: -1.2rem;
+      }
+
+      .shield {
+        position: absolute;
+        inset: 50%;
+        transform: translate(-50%, -50%);
+        width: 9.5rem;
+        height: 9.5rem;
+        border: 1px solid rgba(68, 215, 203, 0.36);
+        border-radius: 2rem;
+        display: grid;
+        place-items: center;
+        color: var(--accent);
+        font-size: 3rem;
+        background: rgba(7, 17, 29, 0.66);
+      }
+
+      main {
+        position: relative;
+      }
+
+      section {
+        padding: 6rem 1.25rem;
+      }
+
+      .section-inner {
+        width: min(100%, var(--max));
+        margin: 0 auto;
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: 0.72fr 1fr;
+        gap: 3rem;
+        align-items: end;
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(2.2rem, 5vw, 4.8rem);
+        line-height: 0.96;
+        letter-spacing: -0.055em;
+      }
+
+      .section-heading p,
+      .proof-copy,
+      .final p {
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 1.05rem;
+      }
+
+      .apps {
+        border-top: 1px solid var(--line);
+      }
+
+      .app-row {
+        display: grid;
+        grid-template-columns: 0.72fr 1.2fr 0.5fr;
+        gap: 2rem;
+        padding: 1.55rem 0;
+        border-bottom: 1px solid var(--line);
+        align-items: start;
+        transition:
+          padding 180ms ease,
+          background 180ms ease;
+      }
+
+      .app-row:hover {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        background: rgba(255, 255, 255, 0.026);
+      }
+
+      .app-name {
+        font-size: 1.3rem;
+        font-weight: 800;
+      }
+
+      .app-desc {
+        color: var(--muted);
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .status {
+        color: var(--accent);
+        font-size: 0.82rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: right;
+      }
+
+      .proof {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
+          var(--bg-soft);
+      }
+
+      .proof-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
+
+      .certs {
+        border-top: 1px solid var(--line);
+      }
+
+      .cert {
+        padding: 1.1rem 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .cert strong {
+        display: block;
+      }
+
+      .cert span {
+        display: block;
+        color: var(--muted);
+        margin-top: 0.25rem;
+      }
+
+      .model {
+        margin-top: 2rem;
+        display: grid;
+        gap: 1rem;
+      }
+
+      .step {
+        display: grid;
+        grid-template-columns: 2.2rem 1fr;
+        gap: 1rem;
+        align-items: start;
+      }
+
+      .step b {
+        width: 2.2rem;
+        height: 2.2rem;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+
+      .step p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .final {
+        text-align: center;
+        padding-bottom: 7rem;
+      }
+
+      .final h2 {
+        max-width: 820px;
+        margin: 0 auto;
+      }
+
+      .final p {
+        max-width: 650px;
+        margin: 1.4rem auto 0;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 1.6rem 1.25rem;
+        color: var(--muted);
+      }
+
+      footer div {
+        width: min(100%, var(--max));
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      @media (max-width: 860px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero-inner,
+        .section-heading,
+        .proof-grid,
+        .app-row {
+          grid-template-columns: 1fr;
+        }
+
+        .orbital {
+          min-height: 22rem;
+        }
+
+        .status {
+          text-align: left;
+        }
+
+        .hero {
+          padding-top: 7rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.001ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav" aria-label="Primary navigation">
+      <div class="nav-inner">
+        <a class="brand" href="#top">
+          <strong>Giacomo Germano</strong>
+          <span>Agentic AI · RAG · AI Governance</span>
+        </a>
+        <nav class="nav-links" aria-label="Page sections">
+          <a href="#apps">Apps</a>
+          <a href="#proof">Proof</a>
+          <a href="#access">Access</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <div class="eyebrow">Governed Enterprise Agents</div>
+            <h1>Agentic apps with human control.</h1>
+            <p class="hero-copy">
+              A public gateway to private AI engineering work: enterprise agents, RAG
+              systems, governance controls and applied prototypes designed around audit,
+              approval and operational use.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="#apps">View agentic apps</a>
+              <a
+                class="button"
+                href="mailto:germagiacomo2@gmail.com?subject=Agentic%20Apps%20Access%20Request"
+                >Request access</a
+              >
+              <a class="button" href="links.html">All links</a>
+              <a class="button" href="README.md">Technical portfolio</a>
+            </div>
+          </div>
+
+          <div class="orbital" aria-hidden="true">
+            <span class="node one"></span>
+            <span class="node two"></span>
+            <span class="node three"></span>
+            <span class="node four"></span>
+            <div class="shield">✓</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="apps">
+        <div class="section-inner">
+          <div class="section-heading">
+            <h2>Private apps, public evidence.</h2>
+            <p>
+              The source repositories stay private. This page shows what each platform is
+              designed to do, where it is in the roadmap and how future users could access
+              it.
+            </p>
+          </div>
+
+          <div class="apps">
+            <article class="app-row">
+              <div class="app-name">MirrorSkills</div>
+              <p class="app-desc">
+                Flagship governed-agent platform for enterprise workflows: human approval,
+                OODA-H queue, risk-graded permissions, Doer/Critic architecture and hybrid
+                local/cloud model routing.
+              </p>
+              <div class="status">Private MVP</div>
+            </article>
+
+            <article class="app-row">
+              <div class="app-name">AI & ML Agent</div>
+              <p class="app-desc">
+                Applied AI runtime combining FastAPI, LangGraph, RAG, tool execution,
+                evaluation and repeatable machine-learning workflows.
+              </p>
+              <div class="status">Validated</div>
+            </article>
+
+            <article class="app-row">
+              <div class="app-name">VisibilAI</div>
+              <p class="app-desc">
+                GEO/AEO visibility platform for understanding how brands appear inside
+                answer engines, with technical audits, structured-data checks and action
+                plans.
+              </p>
+              <div class="status">Active</div>
+            </article>
+
+            <article class="app-row">
+              <div class="app-name">RedBenchOps</div>
+              <p class="app-desc">
+                Responsible LLM robustness platform with authorized campaigns, budgets,
+                allowlists, audit logs and repeatable reporting workflows.
+              </p>
+              <div class="status">Prototype</div>
+            </article>
+
+            <article class="app-row">
+              <div class="app-name">Agentic Trader</div>
+              <p class="app-desc">
+                Read-only market-analysis assistant for evidence-based screening,
+                backtesting and advisory output. Execution remains manual and isolated.
+              </p>
+              <div class="status">Advisory</div>
+            </article>
+
+            <article class="app-row">
+              <div class="app-name">Syntrocyber</div>
+              <p class="app-desc">
+                Defensive AI-security suite for prompt-injection checks, tool governance,
+                memory boundaries, knowledge-base integrity and regression evidence.
+              </p>
+              <div class="status">R&D</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="proof" class="proof">
+        <div class="section-inner proof-grid">
+          <div>
+            <div class="eyebrow">Trust layer</div>
+            <h2>Credentials support the work. The work carries the profile.</h2>
+            <p class="proof-copy">
+              Certifications should not dominate Instagram. They should validate the
+              positioning after visitors understand the products and engineering direction.
+            </p>
+          </div>
+
+          <div class="certs" aria-label="Selected certifications">
+            <div class="cert">
+              <strong>Professional Certificate IBM RAG and Agentic AI</strong>
+              <span>RAG, agents, LangGraph, CrewAI, MCP and multimodal AI</span>
+            </div>
+            <div class="cert">
+              <strong>Professional Certificate IBM Generative AI Engineering</strong>
+              <span>LLM applications, prompt engineering, RAG and AI systems</span>
+            </div>
+            <div class="cert">
+              <strong>Claude with Amazon Bedrock</strong>
+              <span>Claude deployment patterns and AWS Bedrock fundamentals</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="access">
+        <div class="section-inner">
+          <div class="section-heading">
+            <h2>From portfolio to access.</h2>
+            <p>
+              The monetization path should start carefully: public proof, waitlist,
+              private beta, then paid access only for the platforms that are stable enough
+              to support real users.
+            </p>
+          </div>
+
+          <div class="model">
+            <div class="step">
+              <b>1</b>
+              <p>
+                Instagram and LinkedIn send visitors here instead of directly to private
+                repositories.
+              </p>
+            </div>
+            <div class="step">
+              <b>2</b>
+              <p>
+                Visitors choose an app, read the public case study and request access,
+                demo or collaboration.
+              </p>
+            </div>
+            <div class="step">
+              <b>3</b>
+              <p>
+                Stable tools can later become beta subscriptions, consulting offers,
+                managed workflows or paid enterprise pilots.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final">
+        <div class="section-inner">
+          <h2>Build useful agents. Keep authority governed.</h2>
+          <p>
+            If you are exploring enterprise agents, RAG systems or AI-governance workflows,
+            you can request early access or review the technical portfolio.
+          </p>
+          <div class="actions" style="justify-content: center">
+            <a
+              class="button primary"
+              href="mailto:germagiacomo2@gmail.com?subject=Agentic%20Apps%20Access%20Request"
+              >Request access</a
+            >
+            <a class="button" href="https://github.com/giack891811">GitHub profile</a>
+            <a class="button" href="https://www.linkedin.com/in/giacomo-germano-4079491b9/"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <span>© 2026 Giacomo Germano</span>
+        <span>Private code · Public architecture · Governed AI</span>
+      </div>
+    </footer>
+  </body>
+</html>

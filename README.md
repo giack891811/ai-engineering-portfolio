@@ -4,6 +4,12 @@ Selected engineering work by
 [Giacomo Germano](https://github.com/giack891811), Junior AI Engineer based in
 Lugano, Switzerland.
 
+Public landing page for Instagram, LinkedIn and access requests:
+[Governed Enterprise Agents](./index.html)
+
+Mobile link hub for Instagram bio:
+[Official links](./links.html)
+
 > The source repositories are private. This public portfolio documents the
 > problems addressed, architecture, technology choices, safety boundaries and
 > validation evidence without exposing proprietary code, credentials or data.
@@ -252,7 +258,8 @@ not as quantum-hardware research.
 I bring more than 15 years of experience troubleshooting security,
 electromechanical and electronic access-control systems. I am currently
 completing a Computer Engineering degree and hold the IBM Generative AI
-Engineering Professional Certificate.
+Engineering Professional Certificate, the IBM RAG and Agentic AI Professional
+Certificate and the Claude with Amazon Bedrock certificate.
 
 [LinkedIn](https://www.linkedin.com/in/giacomo-germano-4079491b9/) ·
 [GitHub profile](https://github.com/giack891811)
